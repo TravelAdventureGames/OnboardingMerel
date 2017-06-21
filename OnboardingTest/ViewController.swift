@@ -14,18 +14,21 @@ class ViewController: UIViewController {
     
     let verb: String = "spring"
     let problem: String = " nooit echt helemaal voor mezelf in de bres"
-    
+     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(produceTapsentence1())
+        
+        
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        LaunchManager.sharedInstance.currentScene = .scoresysteemUitleg
-        LaunchManager.sharedInstance.currentProces = .onboardingProces
-        LaunchManager.sharedInstance.getNextScene()
+        let bvc = BreathController()
+        present(bvc, animated: false, completion: nil)
+//        LaunchManager.sharedInstance.currentScene = .scoresysteemUitleg
+//        LaunchManager.sharedInstance.currentProces = .onboardingProces
+//        LaunchManager.sharedInstance.getNextScene()
     }
     //test
     func produceTapsentence1() -> String {

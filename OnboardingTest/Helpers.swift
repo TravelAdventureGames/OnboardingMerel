@@ -24,6 +24,18 @@ extension UIColor {
     }
 }
 
+extension UIFont {
+    class func buttonFont() -> UIFont {
+        return UIFont.boldSystemFont(ofSize: 13)
+    }
+}
+
+extension CGFloat {
+    static func buttonBorder() -> CGFloat {
+        return 3.0
+    }
+}
+
 struct Border {
     static let standardWidth: CGFloat = 1
     static let standardColor: UIColor = .white

@@ -33,6 +33,9 @@
 		680641091EF81D0A00E7477B /* ProbleemintroductieHS1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 680640FE1EF81D0A00E7477B /* ProbleemintroductieHS1.mp4 */; };
 		6806410A1EF81D0A00E7477B /* Onboarding3HS1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 680640FF1EF81D0A00E7477B /* Onboarding3HS1.mp4 */; };
 		6806410B1EF81D0A00E7477B /* Onboarding1HS1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 680641001EF81D0A00E7477B /* Onboarding1HS1.mp4 */; };
+		6806410D1EF849C800E7477B /* BreathController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6806410C1EF849C800E7477B /* BreathController.swift */; };
+		6806410F1EF84D4200E7477B /* AudioPLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6806410E1EF84D4200E7477B /* AudioPLayer.swift */; };
+		680641121EFA3C8200E7477B /* VideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680641111EFA3C8100E7477B /* VideoController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +67,9 @@
 		680640FE1EF81D0A00E7477B /* ProbleemintroductieHS1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = ProbleemintroductieHS1.mp4; sourceTree = "<group>"; };
 		680640FF1EF81D0A00E7477B /* Onboarding3HS1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Onboarding3HS1.mp4; sourceTree = "<group>"; };
 		680641001EF81D0A00E7477B /* Onboarding1HS1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Onboarding1HS1.mp4; sourceTree = "<group>"; };
+		6806410C1EF849C800E7477B /* BreathController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreathController.swift; sourceTree = "<group>"; };
+		6806410E1EF84D4200E7477B /* AudioPLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPLayer.swift; sourceTree = "<group>"; };
+		680641111EFA3C8100E7477B /* VideoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,10 +87,11 @@
 			isa = PBXGroup;
 			children = (
 				680640DF1EF8198D00E7477B /* Managers */,
-				680640DC1EF8195200E7477B /* Model */,
-				680640DD1EF8195A00E7477B /* View */,
-				680640DE1EF8196700E7477B /* Controller */,
+				680640DE1EF8196700E7477B /* Controllers */,
+				680640DC1EF8195200E7477B /* Models */,
+				680640DD1EF8195A00E7477B /* Views */,
 				680640E41EF81A3200E7477B /* Helper */,
+				680641101EF9BB3600E7477B /* Audio */,
 				680640F51EF81BB100E7477B /* Movies */,
 				680640C91EF8193700E7477B /* OnboardingTest */,
 				680640C81EF8193700E7477B /* Products */,
@@ -111,18 +118,18 @@
 			path = OnboardingTest;
 			sourceTree = "<group>";
 		};
-		680640DC1EF8195200E7477B /* Model */ = {
+		680640DC1EF8195200E7477B /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				680640E71EF81A7300E7477B /* VideoPathDescription.swift */,
 				680640E91EF81AAB00E7477B /* VideoTextTimes.swift */,
 				680640F31EF81B9B00E7477B /* ProblemExample.swift */,
 			);
-			name = Model;
+			name = Models;
 			path = OnboardingTest;
 			sourceTree = "<group>";
 		};
-		680640DD1EF8195A00E7477B /* View */ = {
+		680640DD1EF8195A00E7477B /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				680640EB1EF81AD000E7477B /* ProblemView.swift */,
@@ -130,17 +137,19 @@
 				680640EF1EF81AFC00E7477B /* SmileView.swift */,
 				680640F11EF81B3000E7477B /* VideoPLayerView.swift */,
 			);
-			name = View;
+			name = Views;
 			path = OnboardingTest;
 			sourceTree = "<group>";
 		};
-		680640DE1EF8196700E7477B /* Controller */ = {
+		680640DE1EF8196700E7477B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				680640CC1EF8193700E7477B /* ViewController.swift */,
+				6806410C1EF849C800E7477B /* BreathController.swift */,
 				680640E21EF81A1900E7477B /* SceneLauncher.swift */,
+				680641111EFA3C8100E7477B /* VideoController.swift */,
 			);
-			name = Controller;
+			name = Controllers;
 			path = OnboardingTest;
 			sourceTree = "<group>";
 		};
@@ -157,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				680640E51EF81A4700E7477B /* Helpers.swift */,
+				6806410E1EF84D4200E7477B /* AudioPLayer.swift */,
 			);
 			name = Helper;
 			path = OnboardingTest;
@@ -178,6 +188,14 @@
 				680641001EF81D0A00E7477B /* Onboarding1HS1.mp4 */,
 			);
 			name = Movies;
+			path = OnboardingTest;
+			sourceTree = "<group>";
+		};
+		680641101EF9BB3600E7477B /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Audio;
 			path = OnboardingTest;
 			sourceTree = "<group>";
 		};
@@ -266,13 +284,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				680640EC1EF81AD000E7477B /* ProblemView.swift in Sources */,
+				6806410D1EF849C800E7477B /* BreathController.swift in Sources */,
 				680640CD1EF8193700E7477B /* ViewController.swift in Sources */,
+				6806410F1EF84D4200E7477B /* AudioPLayer.swift in Sources */,
 				680640EE1EF81AE000E7477B /* ScoreView.swift in Sources */,
 				680640F01EF81AFC00E7477B /* SmileView.swift in Sources */,
 				680640E81EF81A7300E7477B /* VideoPathDescription.swift in Sources */,
 				680640E11EF819C200E7477B /* LaunchManager.swift in Sources */,
 				680640EA1EF81AAB00E7477B /* VideoTextTimes.swift in Sources */,
 				680640F21EF81B3000E7477B /* VideoPLayerView.swift in Sources */,
+				680641121EFA3C8200E7477B /* VideoController.swift in Sources */,
 				680640F41EF81B9B00E7477B /* ProblemExample.swift in Sources */,
 				680640E31EF81A1900E7477B /* SceneLauncher.swift in Sources */,
 				680640E61EF81A4700E7477B /* Helpers.swift in Sources */,
