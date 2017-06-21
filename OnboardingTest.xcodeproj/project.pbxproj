@@ -36,6 +36,8 @@
 		6806410D1EF849C800E7477B /* BreathController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6806410C1EF849C800E7477B /* BreathController.swift */; };
 		6806410F1EF84D4200E7477B /* AudioPLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6806410E1EF84D4200E7477B /* AudioPLayer.swift */; };
 		680641121EFA3C8200E7477B /* VideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680641111EFA3C8100E7477B /* VideoController.swift */; };
+		680641141EFA4AFB00E7477B /* ScoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680641131EFA4AFB00E7477B /* ScoreController.swift */; };
+		680641161EFA4C8E00E7477B /* ProblemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680641151EFA4C8E00E7477B /* ProblemController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +72,8 @@
 		6806410C1EF849C800E7477B /* BreathController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreathController.swift; sourceTree = "<group>"; };
 		6806410E1EF84D4200E7477B /* AudioPLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPLayer.swift; sourceTree = "<group>"; };
 		680641111EFA3C8100E7477B /* VideoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoController.swift; sourceTree = "<group>"; };
+		680641131EFA4AFB00E7477B /* ScoreController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreController.swift; sourceTree = "<group>"; };
+		680641151EFA4C8E00E7477B /* ProblemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProblemController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,8 +150,10 @@
 			children = (
 				680640CC1EF8193700E7477B /* ViewController.swift */,
 				6806410C1EF849C800E7477B /* BreathController.swift */,
-				680640E21EF81A1900E7477B /* SceneLauncher.swift */,
 				680641111EFA3C8100E7477B /* VideoController.swift */,
+				680641131EFA4AFB00E7477B /* ScoreController.swift */,
+				680641151EFA4C8E00E7477B /* ProblemController.swift */,
+				680640E21EF81A1900E7477B /* SceneLauncher.swift */,
 			);
 			name = Controllers;
 			path = OnboardingTest;
@@ -283,6 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				680641141EFA4AFB00E7477B /* ScoreController.swift in Sources */,
 				680640EC1EF81AD000E7477B /* ProblemView.swift in Sources */,
 				6806410D1EF849C800E7477B /* BreathController.swift in Sources */,
 				680640CD1EF8193700E7477B /* ViewController.swift in Sources */,
@@ -290,6 +297,7 @@
 				680640EE1EF81AE000E7477B /* ScoreView.swift in Sources */,
 				680640F01EF81AFC00E7477B /* SmileView.swift in Sources */,
 				680640E81EF81A7300E7477B /* VideoPathDescription.swift in Sources */,
+				680641161EFA4C8E00E7477B /* ProblemController.swift in Sources */,
 				680640E11EF819C200E7477B /* LaunchManager.swift in Sources */,
 				680640EA1EF81AAB00E7477B /* VideoTextTimes.swift in Sources */,
 				680640F21EF81B3000E7477B /* VideoPLayerView.swift in Sources */,

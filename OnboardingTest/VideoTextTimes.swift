@@ -10,7 +10,7 @@ import Foundation
 
 import Foundation
 
-//Hier de exacte tijdstippen van het verschijnen en verdwijnen van de zin invullen
+//Hier de exacte tijdstippen van het verschijnen en verdwijnen van de zinnen invullen voor in de VideoController
 struct VideoTextBeginTimes {
     static let opstartZin: [Double] = []
     static let eersteTapSessie: [Double] = []

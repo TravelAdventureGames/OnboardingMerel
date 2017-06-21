@@ -46,7 +46,7 @@ class VideoPlayerView: UIView {
         ab.isHidden = true
         ab.setTitleColor(UIColor.buttonTextColor(), for: .normal)
         ab.setTitle("Speel nogmaals", for: .normal)
-        ab.titleLabel?.font = UIFont.boldSystemFont(ofSize: 13)
+        ab.titleLabel?.font = UIFont.buttonFont()
         ab.translatesAutoresizingMaskIntoConstraints = false
         ab.addTarget(self, action: #selector(handleAgainVideoTapped), for: .touchUpInside)
         ab.layer.cornerRadius = 3
@@ -62,9 +62,9 @@ class VideoPlayerView: UIView {
         ab.setTitleColor(UIColor.buttonTextColor(), for: .normal)
         ab.setTitle("Ga verder", for: .normal)
         ab.translatesAutoresizingMaskIntoConstraints = false
-        ab.titleLabel?.font = UIFont.boldSystemFont(ofSize: 13)
+        ab.titleLabel?.font = UIFont.buttonFont()
         ab.addTarget(self, action: #selector(handleNextVideoTapped), for: .touchUpInside)
-        ab.layer.cornerRadius = 3
+        ab.layer.cornerRadius = CGFloat.buttonCornerRadius()
         return ab
     }()
     

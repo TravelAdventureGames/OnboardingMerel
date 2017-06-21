@@ -101,9 +101,9 @@ class ProblemView: UIView, UITextViewDelegate {
         ab.setTitleColor(UIColor.buttonTextColor(), for: .normal)
         ab.setTitle("Ga verder", for: .normal)
         ab.translatesAutoresizingMaskIntoConstraints = false
-        ab.titleLabel?.font = UIFont.boldSystemFont(ofSize: 13)
+        ab.titleLabel?.font = UIFont.buttonFont()
         ab.addTarget(self, action: #selector(handleNextVideoTapped), for: .touchUpInside)
-        ab.layer.cornerRadius = 3
+        ab.layer.cornerRadius = CGFloat.buttonCornerRadius()
         return ab
     }()
     
@@ -113,9 +113,9 @@ class ProblemView: UIView, UITextViewDelegate {
         ab.setTitleColor(UIColor.buttonTextColor(), for: .normal)
         ab.setTitle("Geef voorbeeld", for: .normal)
         ab.translatesAutoresizingMaskIntoConstraints = false
-        ab.titleLabel?.font = UIFont.boldSystemFont(ofSize: 13)
+        ab.titleLabel?.font = UIFont.buttonFont()
         ab.addTarget(self, action: #selector(handleExampleTapped), for: .touchUpInside)
-        ab.layer.cornerRadius = 3
+        ab.layer.cornerRadius = CGFloat.buttonCornerRadius()
         return ab
     }()
     

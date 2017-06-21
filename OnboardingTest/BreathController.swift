@@ -9,6 +9,8 @@
 import UIKit
 import AVFoundation
 
+// A vc to handle the breathing excersize. It doesnt do anything except form displaying. It has a slider to be able to change the length of the breaths. It's going to produce an animation accompanied by the sound of Merel's voice and her breathing. I allready made a separate AudioPLayer-class for that purpose in the Helper-group.
+
 class BreathController: UIViewController {
     
     let exitButton: UIButton = {
@@ -47,7 +49,7 @@ class BreathController: UIViewController {
         sb.translatesAutoresizingMaskIntoConstraints = false
         sb.setTitle("Start sessie", for: .normal)
         sb.titleLabel?.font = UIFont.buttonFont()
-        sb.layer.cornerRadius = CGFloat.buttonBorder()
+        sb.layer.cornerRadius = CGFloat.buttonCornerRadius()
         return sb
     }()
 

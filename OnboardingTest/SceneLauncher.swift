@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+// Als het goed is wordt deze class overbodig omdat we nu separate viewControllers hebben voor videoPLayerView, ScoreView en ProblemView en deze ook kunnen aanspreken vanuit de LaunchManager.
+
 class SceneLauncher: NSObject {
     
     let messageLabel: UILabel = {

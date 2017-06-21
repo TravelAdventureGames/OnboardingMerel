@@ -73,9 +73,9 @@ class ScoreView: UIView {
         ab.setTitleColor(UIColor.buttonTextColor(), for: .normal)
         ab.setTitle("Ga verder", for: .normal)
         ab.translatesAutoresizingMaskIntoConstraints = false
-        ab.titleLabel?.font = UIFont.boldSystemFont(ofSize: 13)
+        ab.titleLabel?.font = UIFont.buttonFont()
         ab.addTarget(self, action: #selector(handleNextVideoTapped), for: ([.touchUpInside,.touchUpOutside]))
-        ab.layer.cornerRadius = 3
+        ab.layer.cornerRadius = CGFloat.buttonCornerRadius()
         return ab
     }()
     

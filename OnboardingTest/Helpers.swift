@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+//helpers om makkelijk te kunnen wijzigen in de stijl van buttons, etc. die door de hele app worden gebruikt.
+
 extension UIColor {
     
     class func buttonBackgroundColor() -> UIColor {
@@ -31,7 +33,7 @@ extension UIFont {
 }
 
 extension CGFloat {
-    static func buttonBorder() -> CGFloat {
+    static func buttonCornerRadius() -> CGFloat {
         return 3.0
     }
 }

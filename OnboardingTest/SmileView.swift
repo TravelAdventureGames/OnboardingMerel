@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+//wordt gecalled vanuit scoreView
+
 @IBDesignable
 class SmileView: UIView {
     

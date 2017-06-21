@@ -8,9 +8,14 @@
 
 import Foundation
 
-//This class determines the flow of all app-scenes. Based on the currentscene (and maybe some other variables such as score) it determines the next scene to be presented. There are numourous scenes such as ShowVideoPlayer, ShowProblemView, ShowScoreEditView, etc. It uses the SceneLauncher-class to handle the presentation of them with animation. It uses the Scene-enum to get to the properties belonging to  the currentscene such as the videoPath, The videoDescription (which is used as text in the messageView in the SceneLauncher) and videoTextBeginTimes and videoTextEndTimes to determine the exact timeframes of the texts regarding the problem which is tapped on, to be be shown in the VideoPLayer.
+//This class determines the flow of all app-scenes. Based on the currentscene (and maybe some other variables such as score) it determines the next scene to be presented. There are numourous scenes such as ShowVideoPlayer, ShowProblemView, ShowScoreEditView, etc. It aslo uses currentProcess to determine which proces is going on at a specific moment (f.e. the onboarding-proces or tappingWithMerel). We discussed it would be better to make separate launchmanagers for the different processes to be handled.
+//I use the SceneLauncher-class to handle the presentation of them with animation, but in the new form I made new separate viewControllers for video, score and problem. This launchmanager still has to be adapted to handle the scenes from their viewController (I didn't made that change yet, it now still uses the SceneLauncher-class).
+//Launchmanager uses the Scene-enum to get to the properties belonging to  the currentscene such as the videoPath, the videoDescription (which is used as text in the messageView in the SceneLauncher) and videoTextBeginTimes and videoTextEndTimes to determine the exact timeframes of the texts regarding the problem which is tapped on, to be be shown in the VideoPLayer.
 
 class LaunchManager {
+
+    let videoPlayer = VideoController()
+    
     static let sharedInstance = LaunchManager()
     let sceneLauncher = SceneLauncher()
     
@@ -23,7 +28,7 @@ class LaunchManager {
         //All scenes onboardingProces
         case (.none, .onboardingProces):
             currentScene = .onboarding1
-            sceneLauncher.ShowVideoPlayer(withPath: currentScene.rawValue, withMessage: currentScene.videoDescription, withTextBeginTimes: [], withTextEndTimes: [])
+            sceneLauncher.ShowVideoPlayer(withPath: self.currentScene.rawValue, withMessage: self.currentScene.videoDescription, withTextBeginTimes: [], withTextEndTimes: [])
         case (.onboarding1, .onboardingProces):
             currentScene = .onboarding2
             sceneLauncher.ShowVideoPlayer(withPath: currentScene.rawValue, withMessage: currentScene.videoDescription, withTextBeginTimes: [], withTextEndTimes: [])

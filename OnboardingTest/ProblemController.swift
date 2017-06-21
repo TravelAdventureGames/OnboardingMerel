@@ -1,5 +1,5 @@
 //
-//  VideoController.swift
+//  ProblemController.swift
 //  OnboardingTest
 //
 //  Created by Martijn van Gogh on 21-06-17.
@@ -8,7 +8,8 @@
 
 import UIKit
 
-class VideoController: UIViewController {
+class ProblemController: UIViewController {
+    
     
     let messageLabel: UILabel = {
         let ml = UILabel()
@@ -24,14 +25,17 @@ class VideoController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Do any additional setup after loading the view.
     }
     
-    func ShowVideoPlayer(withPath: String, withMessage: String, withTextBeginTimes: [Double], withTextEndTimes: [Double]) {
+    func showProblemView(withMessage: String) {
         
-            let videoPlayerView = VideoPlayerView(frame: view.frame)
-            view.addSubview(videoPlayerView)
-            videoPlayerView.setUpVideo(withPath: withPath)
-            videoPlayerView.isHidden = true
+       
+            
+            let problemView = ProblemView(frame: view.frame)
+            view.addSubview(problemView)
+            problemView.setUpViews()
+            problemView.isHidden = true
             
             let messageView = UIView(frame: view.frame)
             view.addSubview(messageView)
@@ -48,21 +52,15 @@ class VideoController: UIViewController {
                 messageView.alpha = 1.0
                 
             }, completion: { (completed) in
-                
+                problemView.isHidden = false
                 UIView.animate(withDuration: 1.0, delay: 2.0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
                     messageView.alpha = 0.0
-                    videoPlayerView.isHidden = false
-                    videoPlayerView.againButton.isHidden = false
-                    videoPlayerView.nextButton.isHidden = false
-                    
                     
                     
                 }, completion: { (completed) in
                     
                     messageView.removeFromSuperview()
-                    videoPlayerView.againButton.isHidden = false
-                    videoPlayerView.nextButton.isHidden = false
-                    videoPlayerView.player.play()
+                    
                     
                 })
             })

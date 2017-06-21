@@ -8,6 +8,8 @@
 
 import Foundation
 
+// If a scene or proces is added which is going to be used in the LauncManager, it has to be added here.
+
 enum CurrentProces {
     case onboardingProces
     case tappingWithMerelProces

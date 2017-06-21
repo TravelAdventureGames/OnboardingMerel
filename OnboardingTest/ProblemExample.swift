@@ -8,6 +8,8 @@
 
 import Foundation
 
+//tijdenlijke struct om wat voorbeelden te hebben van zinnen
+
 struct ProblemExamples {
     static let verbs = ["ben", "word", "voel me", "voel"]
     static let problems = ["altijd enorm zenuwachtig als ik het woord moet nemen op vergaderingen", "de laatste tijd echt om de kleinste dingetjes erg boos", "zo verschrikkelijk moe de laatste tijd.", "pijn in mijn onderrug"]
