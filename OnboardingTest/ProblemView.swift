@@ -204,9 +204,7 @@ class ProblemView: UIView, UITextViewDelegate {
         nextButton.widthAnchor.constraint(equalToConstant: 120).isActive = true
         nextButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
         nextButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -30).isActive = true
-        
     }
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)

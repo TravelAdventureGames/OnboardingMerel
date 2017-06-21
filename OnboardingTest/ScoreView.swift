@@ -85,8 +85,6 @@ class ScoreView: UIView {
         return sm
     }()
     
-    
-    
     func handleNextVideoTapped() {
         LaunchManager.sharedInstance.getNextScene()
     }

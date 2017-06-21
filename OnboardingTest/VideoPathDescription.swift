@@ -33,7 +33,10 @@ enum Scene: String {
     case positiefEindFilmpje = "PositieveeindfilmHS1"
     case alsHetNietWerkt = "AlshetnietwerktHS1"
     
-    
+    var path: String {
+        return rawValue
+    }
+
     var videoDescription: String {
         switch self {
         case .none:

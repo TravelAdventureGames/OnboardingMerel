@@ -12,10 +12,23 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    var coordinator: LaunchManager!
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        let rootVC = UINavigationController()
+        // For setting up the first vc we can also have a rootcoordinator (appwide) which can coordinate the first view like onboarding or dashboard
+        // It will do this by deciding which child coordinator to create and to start
+        window?.rootViewController = rootVC
+        coordinator = LaunchManager()
+        coordinator.start()
+        // self.window?.rootViewController = VideoController(video: .onboarding1)
+        window?.makeKeyAndVisible()
+        
         return true
     }
 

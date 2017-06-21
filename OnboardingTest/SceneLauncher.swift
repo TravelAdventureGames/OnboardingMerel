@@ -71,7 +71,7 @@ class SceneLauncher: NSObject {
                     messageView.removeFromSuperview()
                     videoPlayerView.againButton.isHidden = false
                     videoPlayerView.nextButton.isHidden = false
-                    videoPlayerView.player.play()
+                    videoPlayerView.player?.play()
                     
                 })
             })
