@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		11A4791B1EFADC460067E85F /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A4791A1EFADC460067E85F /* MessageView.swift */; };
 		11A4791D1EFB18E40067E85F /* CrossDissolveAnimatedTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A4791C1EFB18E40067E85F /* CrossDissolveAnimatedTransitioning.swift */; };
+		11A479211EFF21270067E85F /* VideoplayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A479201EFF21270067E85F /* VideoplayerView.swift */; };
+		11A479251F0061400067E85F /* VideoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11A479241F0061400067E85F /* VideoController.xib */; };
 		680640CB1EF8193700E7477B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680640CA1EF8193700E7477B /* AppDelegate.swift */; };
 		680640CD1EF8193700E7477B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680640CC1EF8193700E7477B /* ViewController.swift */; };
 		680640D21EF8193700E7477B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 680640D11EF8193700E7477B /* Assets.xcassets */; };
@@ -21,7 +23,6 @@
 		680640EC1EF81AD000E7477B /* ProblemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680640EB1EF81AD000E7477B /* ProblemView.swift */; };
 		680640EE1EF81AE000E7477B /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680640ED1EF81AE000E7477B /* ScoreView.swift */; };
 		680640F01EF81AFC00E7477B /* SmileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680640EF1EF81AFC00E7477B /* SmileView.swift */; };
-		680640F21EF81B3000E7477B /* VideoPLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680640F11EF81B3000E7477B /* VideoPLayerView.swift */; };
 		680640F41EF81B9B00E7477B /* ProblemExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680640F31EF81B9B00E7477B /* ProblemExample.swift */; };
 		680641011EF81D0A00E7477B /* Onboarding2COM1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 680640F61EF81D0A00E7477B /* Onboarding2COM1.mp4 */; };
 		680641021EF81D0A00E7477B /* TweedetapsessieCOM1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 680640F71EF81D0A00E7477B /* TweedetapsessieCOM1.mp4 */; };
@@ -44,6 +45,8 @@
 /* Begin PBXFileReference section */
 		11A4791A1EFADC460067E85F /* MessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		11A4791C1EFB18E40067E85F /* CrossDissolveAnimatedTransitioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrossDissolveAnimatedTransitioning.swift; sourceTree = "<group>"; };
+		11A479201EFF21270067E85F /* VideoplayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoplayerView.swift; sourceTree = "<group>"; };
+		11A479241F0061400067E85F /* VideoController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoController.xib; sourceTree = "<group>"; };
 		680640C71EF8193700E7477B /* OnboardingTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnboardingTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		680640CA1EF8193700E7477B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		680640CC1EF8193700E7477B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,7 +61,6 @@
 		680640EB1EF81AD000E7477B /* ProblemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProblemView.swift; sourceTree = "<group>"; };
 		680640ED1EF81AE000E7477B /* ScoreView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		680640EF1EF81AFC00E7477B /* SmileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmileView.swift; sourceTree = "<group>"; };
-		680640F11EF81B3000E7477B /* VideoPLayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPLayerView.swift; sourceTree = "<group>"; };
 		680640F31EF81B9B00E7477B /* ProblemExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProblemExample.swift; sourceTree = "<group>"; };
 		680640F61EF81D0A00E7477B /* Onboarding2COM1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Onboarding2COM1.mp4; sourceTree = "<group>"; };
 		680640F71EF81D0A00E7477B /* TweedetapsessieCOM1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = TweedetapsessieCOM1.mp4; sourceTree = "<group>"; };
@@ -137,10 +139,10 @@
 		680640DD1EF8195A00E7477B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				11A479201EFF21270067E85F /* VideoplayerView.swift */,
 				680640EB1EF81AD000E7477B /* ProblemView.swift */,
 				680640ED1EF81AE000E7477B /* ScoreView.swift */,
 				680640EF1EF81AFC00E7477B /* SmileView.swift */,
-				680640F11EF81B3000E7477B /* VideoPLayerView.swift */,
 				11A4791A1EFADC460067E85F /* MessageView.swift */,
 			);
 			name = Views;
@@ -153,6 +155,7 @@
 				680640CC1EF8193700E7477B /* ViewController.swift */,
 				6806410C1EF849C800E7477B /* BreathController.swift */,
 				680641111EFA3C8100E7477B /* VideoController.swift */,
+				11A479241F0061400067E85F /* VideoController.xib */,
 				680641131EFA4AFB00E7477B /* ScoreController.swift */,
 				680641151EFA4C8E00E7477B /* ProblemController.swift */,
 				680640E21EF81A1900E7477B /* SceneLauncher.swift */,
@@ -276,6 +279,7 @@
 				680641031EF81D0A00E7477B /* ScoreuitlegCOM1.mp4 in Resources */,
 				680641091EF81D0A00E7477B /* ProbleemintroductieHS1.mp4 in Resources */,
 				680640D21EF8193700E7477B /* Assets.xcassets in Resources */,
+				11A479251F0061400067E85F /* VideoController.xib in Resources */,
 				680641041EF81D0A00E7477B /* OpstartzinCOM1.mp4 in Resources */,
 				680641061EF81D0A00E7477B /* EerstetapsessieCOM1.mp4 in Resources */,
 				6806410A1EF81D0A00E7477B /* Onboarding3HS1.mp4 in Resources */,
@@ -294,6 +298,7 @@
 				680641141EFA4AFB00E7477B /* ScoreController.swift in Sources */,
 				680640EC1EF81AD000E7477B /* ProblemView.swift in Sources */,
 				6806410D1EF849C800E7477B /* BreathController.swift in Sources */,
+				11A479211EFF21270067E85F /* VideoplayerView.swift in Sources */,
 				680640CD1EF8193700E7477B /* ViewController.swift in Sources */,
 				6806410F1EF84D4200E7477B /* AudioPLayer.swift in Sources */,
 				680640EE1EF81AE000E7477B /* ScoreView.swift in Sources */,
@@ -303,7 +308,6 @@
 				680640E11EF819C200E7477B /* LaunchManager.swift in Sources */,
 				680640EA1EF81AAB00E7477B /* VideoTextTimes.swift in Sources */,
 				11A4791D1EFB18E40067E85F /* CrossDissolveAnimatedTransitioning.swift in Sources */,
-				680640F21EF81B3000E7477B /* VideoPLayerView.swift in Sources */,
 				11A4791B1EFADC460067E85F /* MessageView.swift in Sources */,
 				680641121EFA3C8200E7477B /* VideoController.swift in Sources */,
 				680640F41EF81B9B00E7477B /* ProblemExample.swift in Sources */,

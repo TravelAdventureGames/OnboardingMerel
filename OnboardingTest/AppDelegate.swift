@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // For setting up the first vc we can also have a rootcoordinator (appwide) which can coordinate the first view like onboarding or dashboard
         // It will do this by deciding which child coordinator to create and to start
         window?.rootViewController = rootVC
-        coordinator = LaunchManager()
+        coordinator = LaunchManager(rootVC: rootVC)
         coordinator.start()
         // self.window?.rootViewController = VideoController(video: .onboarding1)
         window?.makeKeyAndVisible()

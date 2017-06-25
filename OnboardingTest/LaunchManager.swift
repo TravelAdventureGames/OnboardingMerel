@@ -43,6 +43,11 @@ class LaunchManager: NSObject {
     var currentScene: Scene = .none //temp terugzetten naar .none
     var currentProces: CurrentProces = .onboardingProces
     
+    init(rootVC: UINavigationController = UINavigationController()) {
+        self.navigationController = rootVC
+        super.init()
+    }
+    
     fileprivate var navigationController = UINavigationController()
     
     func getNextScene() {
@@ -51,16 +56,16 @@ class LaunchManager: NSObject {
         //All scenes onboardingProces
         case (.none, .onboardingProces):
             currentScene = .onboarding1
-            sceneLauncher.ShowVideoPlayer(withPath: self.currentScene.rawValue, withMessage: self.currentScene.videoDescription, withTextBeginTimes: [], withTextEndTimes: [])
+//            sceneLauncher.ShowVideoPlayer(withPath: self.currentScene.rawValue, withMessage: self.currentScene.videoDescription, withTextBeginTimes: [], withTextEndTimes: [])
         case (.onboarding1, .onboardingProces):
             currentScene = .onboarding2
-            sceneLauncher.ShowVideoPlayer(withPath: currentScene.rawValue, withMessage: currentScene.videoDescription, withTextBeginTimes: [], withTextEndTimes: [])
+//            sceneLauncher.ShowVideoPlayer(withPath: currentScene.rawValue, withMessage: currentScene.videoDescription, withTextBeginTimes: [], withTextEndTimes: [])
         case (.onboarding2, .onboardingProces):
             currentScene = .onboarding3
-            sceneLauncher.ShowVideoPlayer(withPath: currentScene.rawValue, withMessage: currentScene.videoDescription, withTextBeginTimes: [], withTextEndTimes: [])
+//            sceneLauncher.ShowVideoPlayer(withPath: currentScene.rawValue, withMessage: currentScene.videoDescription, withTextBeginTimes: [], withTextEndTimes: [])
         case (.onboarding3, .onboardingProces):
             currentScene = .probleemIntroductie
-            sceneLauncher.ShowVideoPlayer(withPath: currentScene.rawValue, withMessage: currentScene.videoDescription, withTextBeginTimes: [], withTextEndTimes: [])
+//            sceneLauncher.ShowVideoPlayer(withPath: currentScene.rawValue, withMessage: currentScene.videoDescription, withTextBeginTimes: [], withTextEndTimes: [])
         case (.probleemIntroductie, .onboardingProces):
             sceneLauncher.removeAllViews()
             currentScene = .probleemInvullen
@@ -68,7 +73,7 @@ class LaunchManager: NSObject {
         case (.probleemInvullen, .onboardingProces):
             currentScene = .scoresysteemUitleg
             sceneLauncher.removeAllViews()
-            sceneLauncher.ShowVideoPlayer(withPath: currentScene.rawValue, withMessage: currentScene.videoDescription, withTextBeginTimes: [], withTextEndTimes: [])
+//            sceneLauncher.ShowVideoPlayer(withPath: currentScene.rawValue, withMessage: currentScene.videoDescription, withTextBeginTimes: [], withTextEndTimes: [])
         case (.scoresysteemUitleg, .onboardingProces):
             currentScene = .scoreInvullen
             sceneLauncher.removeAllViews()
@@ -76,11 +81,11 @@ class LaunchManager: NSObject {
         case (.scoreInvullen, .onboardingProces):
             sceneLauncher.removeAllViews()
             currentScene = .opstartzin
-            sceneLauncher.ShowVideoPlayer(withPath: currentScene.rawValue, withMessage: currentScene.videoDescription, withTextBeginTimes: currentScene.videoTextBeginTimes, withTextEndTimes: currentScene.videoTextEndTimes)
+//            sceneLauncher.ShowVideoPlayer(withPath: currentScene.rawValue, withMessage: currentScene.videoDescription, withTextBeginTimes: currentScene.videoTextBeginTimes, withTextEndTimes: currentScene.videoTextEndTimes)
         case (.opstartzin, .onboardingProces):
             sceneLauncher.removeAllViews()
             currentScene = .eersteTapsessie
-            sceneLauncher.ShowVideoPlayer(withPath: currentScene.rawValue, withMessage: currentScene.videoDescription, withTextBeginTimes: currentScene.videoTextBeginTimes, withTextEndTimes: currentScene.videoTextEndTimes)
+//            sceneLauncher.ShowVideoPlayer(withPath: currentScene.rawValue, withMessage: currentScene.videoDescription, withTextBeginTimes: currentScene.videoTextBeginTimes, withTextEndTimes: currentScene.videoTextEndTimes)
         case (.eersteTapsessie, .onboardingProces):
             sceneLauncher.removeAllViews()
             currentScene = .tweedeKeerScoreInvullen
@@ -99,7 +104,7 @@ class LaunchManager: NSObject {
         case (.scoreInvullen, .tappingWithMerelProces):
             sceneLauncher.removeAllViews()
             currentScene = .opstartzin
-            sceneLauncher.ShowVideoPlayer(withPath: currentScene.rawValue, withMessage: currentScene.videoDescription, withTextBeginTimes: currentScene.videoTextBeginTimes, withTextEndTimes: currentScene.videoTextEndTimes)
+//            sceneLauncher.ShowVideoPlayer(withPath: currentScene.rawValue, withMessage: currentScene.videoDescription, withTextBeginTimes: currentScene.videoTextBeginTimes, withTextEndTimes: currentScene.videoTextEndTimes)
         //etc
         default:
             currentScene = .alsHetNietWerkt
@@ -107,7 +112,7 @@ class LaunchManager: NSObject {
     }
     
     func playAgain() {
-        sceneLauncher.ShowVideoPlayer(withPath: currentScene.rawValue, withMessage: currentScene.videoDescription, withTextBeginTimes: [], withTextEndTimes: [])
+//        sceneLauncher.ShowVideoPlayer(withPath: currentScene.rawValue, withMessage: currentScene.videoDescription, withTextBeginTimes: [], withTextEndTimes: []) 
     }
     
     // Called from the app delegate to show the first view controller

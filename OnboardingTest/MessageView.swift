@@ -37,6 +37,8 @@ class MessageView: UIView {
         messageLabel.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 0).isActive = true
         messageLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 0).isActive = true
         messageLabel.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        
+        backgroundColor = .black
     }
     
     func set(message: String) {

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12121"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VideoController" customModule="OnboardingTest" customModuleProvider="target">
+            <connections>
+                <outlet property="messageView" destination="dhN-gt-M5W" id="U4y-cQ-0m9"/>
+                <outlet property="videoView" destination="D94-sm-Yde" id="E99-Ad-z3b"/>
+                <outlet property="view" destination="iN0-l3-epB" id="g87-iL-w36"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dhN-gt-M5W" customClass="MessageView" customModule="OnboardingTest" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D94-sm-Yde" customClass="VideoplayerView" customModule="OnboardingTest" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="dhN-gt-M5W" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="2wq-tu-nGV"/>
+                <constraint firstAttribute="bottom" secondItem="dhN-gt-M5W" secondAttribute="bottom" id="9SN-LM-OS2"/>
+                <constraint firstItem="dhN-gt-M5W" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Ksf-2R-uMW"/>
+                <constraint firstAttribute="bottom" secondItem="D94-sm-Yde" secondAttribute="bottom" id="Ocn-yl-IRC"/>
+                <constraint firstAttribute="trailing" secondItem="dhN-gt-M5W" secondAttribute="trailing" id="U9m-Sc-heL"/>
+                <constraint firstItem="D94-sm-Yde" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Ysl-nC-efv"/>
+                <constraint firstItem="D94-sm-Yde" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="gAc-F3-U9E"/>
+                <constraint firstAttribute="trailing" secondItem="D94-sm-Yde" secondAttribute="trailing" id="o8L-K3-fCo"/>
+            </constraints>
+            <point key="canvasLocation" x="10" y="40"/>
+        </view>
+    </objects>
+</document>
