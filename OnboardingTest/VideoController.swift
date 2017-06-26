@@ -26,6 +26,7 @@ class VideoController: UIViewController {
     
     private var firstLoad = true
     
+    // TODO: - Make view controller independent of Scene
     init(video: Scene = .alsHetNietWerkt) {
         self.video = video
         super.init(nibName: nil, bundle: nil)
