@@ -25,9 +25,9 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         //The beginstate is set by defining the currentproces and the current startingscene. This has to be moved to appDelagate at some time in the future.
-        LaunchManager.sharedInstance.currentScene = .none
-        LaunchManager.sharedInstance.currentProces = .onboardingProces
-        LaunchManager.sharedInstance.getNextScene()
+//        LaunchManager.sharedInstance.currentScene = .none
+//        LaunchManager.sharedInstance.currentProces = .onboardingProces
+//        LaunchManager.sharedInstance.getNextScene()
     }
     //I allready made a function to transform the verb and problem which are filled in by the user (or coming from storage in coredata) to the sentence which is used by Merel. It is not used yet, but works fine.
     func produceTapsentence1() -> String {

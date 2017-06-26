@@ -10,12 +10,14 @@ import Foundation
 import UIKit
 
 protocol ProblemViewDelegate: class {
-    func didClickProblemViewNext(_ view: ProblemView)
+    func problemViewDidClickNextButton(_ view: ProblemView)
 }
 
 class ProblemView: UIView, UITextViewDelegate {
     
     var counter = 0
+    
+    weak var delegate: ProblemViewDelegate?
     
     let upperLabel: UILabel = {
         let ul = UILabel()
@@ -120,7 +122,7 @@ class ProblemView: UIView, UITextViewDelegate {
     }()
     
     func handleNextVideoTapped() {
-        LaunchManager.sharedInstance.getNextScene()
+        delegate?.problemViewDidClickNextButton(self)
     }
     
     func handleExampleTapped() {
