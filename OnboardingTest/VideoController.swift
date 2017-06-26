@@ -18,6 +18,10 @@ class VideoController: UIViewController {
     
     @IBOutlet weak var videoView: VideoplayerView!
  
+    @IBOutlet weak var againButton: UIButton!
+    
+    @IBOutlet weak var nextButton: UIButton!
+    
     private let video: Scene
     
     weak var delegate: VideoControllerDelegate?
@@ -35,6 +39,9 @@ class VideoController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        againButton.setTitle("Play again", for: .normal)
+        nextButton.setTitle("Next", for: .normal)
         
         // Setup for animation
         videoView.alpha = 0
@@ -55,7 +62,7 @@ class VideoController: UIViewController {
 
     private func play(video: Scene) {
         UIView.animate(withDuration: 0.0, delay: 0.0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-//            self.messageView.alpha = 1.0
+            self.messageView.alpha = 1.0
         }, completion: { completed in
             UIView.animate(withDuration: 1.0, delay: 2.0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
                 self.videoView.alpha = 1.0
@@ -65,7 +72,16 @@ class VideoController: UIViewController {
             })
         })
     }
-
+    
+    @IBAction func againButtonClick(_ sender: UIButton) {
+        videoView.stop()
+        videoView.play()
+    }
+    
+    @IBAction func nextButtonClick(_ sender: UIButton) {
+        delegate?.videoControllerNextButtonClick(self)
+    }
+    
 }
 
 extension VideoController: VideoplayerViewDelegate {
