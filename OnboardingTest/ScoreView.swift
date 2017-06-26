@@ -9,9 +9,16 @@
 import Foundation
 import UIKit
 
+protocol ScoreViewDelegate: class {
+    func scoreViewDidClickNextButton(_ view: ScoreView)
+}
+
 class ScoreView: UIView {
     
     let bw: CGFloat = 3
+    
+    weak var delegate: ScoreViewDelegate?
+    
     
     let scoreSlider: UISlider = {
         let sl = UISlider()
@@ -86,17 +93,22 @@ class ScoreView: UIView {
     }()
     
     func handleNextVideoTapped() {
-        LaunchManager.sharedInstance.getNextScene()
+        delegate?.scoreViewDidClickNextButton(self)
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        smileView.mouthCurvature = Double(-1 + scoreSlider.value/5)
+        commonInit()
     }
     
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
+        commonInit()
+    }
+    
+    private func commonInit() {
+        setupSlider()
     }
     
     func setupSlider() {
@@ -164,18 +176,18 @@ class ScoreView: UIView {
         previousScoreTitle.widthAnchor.constraint(equalTo: previousScoreLabel.widthAnchor).isActive = true
         previousScoreTitle.heightAnchor.constraint(equalToConstant: 20).isActive = true
         
-        placeSmileView()
-        
-        
-    }
-    
-    func placeSmileView() {
         self.addSubview(smileView)
         smileView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         smileView.widthAnchor.constraint(equalToConstant: 120).isActive = true
         smileView.heightAnchor.constraint(equalToConstant: 120).isActive = true
         smileView.topAnchor.constraint(equalTo: self.topAnchor, constant: 50).isActive = true
+        
+        smileView.mouthCurvature = Double(-1 + scoreSlider.value/5)
+        
+        
+        
     }
+    
     
     func scoreChanged() {
         currentScoreLabel.text = "\((round(10*scoreSlider.value)/10))"

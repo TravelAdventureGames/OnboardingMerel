@@ -16,7 +16,6 @@
 		680640D21EF8193700E7477B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 680640D11EF8193700E7477B /* Assets.xcassets */; };
 		680640D51EF8193700E7477B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 680640D31EF8193700E7477B /* LaunchScreen.storyboard */; };
 		680640E11EF819C200E7477B /* LaunchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680640E01EF819C200E7477B /* LaunchManager.swift */; };
-		680640E31EF81A1900E7477B /* SceneLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680640E21EF81A1900E7477B /* SceneLauncher.swift */; };
 		680640E61EF81A4700E7477B /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680640E51EF81A4700E7477B /* Helpers.swift */; };
 		680640E81EF81A7300E7477B /* VideoPathDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680640E71EF81A7300E7477B /* VideoPathDescription.swift */; };
 		680640EA1EF81AAB00E7477B /* VideoTextTimes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680640E91EF81AAB00E7477B /* VideoTextTimes.swift */; };
@@ -54,7 +53,6 @@
 		680640D41EF8193700E7477B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		680640D61EF8193700E7477B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		680640E01EF819C200E7477B /* LaunchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchManager.swift; sourceTree = "<group>"; };
-		680640E21EF81A1900E7477B /* SceneLauncher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneLauncher.swift; sourceTree = "<group>"; };
 		680640E51EF81A4700E7477B /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		680640E71EF81A7300E7477B /* VideoPathDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPathDescription.swift; sourceTree = "<group>"; };
 		680640E91EF81AAB00E7477B /* VideoTextTimes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoTextTimes.swift; sourceTree = "<group>"; };
@@ -158,7 +156,6 @@
 				11A479241F0061400067E85F /* VideoController.xib */,
 				680641131EFA4AFB00E7477B /* ScoreController.swift */,
 				680641151EFA4C8E00E7477B /* ProblemController.swift */,
-				680640E21EF81A1900E7477B /* SceneLauncher.swift */,
 			);
 			name = Controllers;
 			path = OnboardingTest;
@@ -311,7 +308,6 @@
 				11A4791B1EFADC460067E85F /* MessageView.swift in Sources */,
 				680641121EFA3C8200E7477B /* VideoController.swift in Sources */,
 				680640F41EF81B9B00E7477B /* ProblemExample.swift in Sources */,
-				680640E31EF81A1900E7477B /* SceneLauncher.swift in Sources */,
 				680640E61EF81A4700E7477B /* Helpers.swift in Sources */,
 				680640CB1EF8193700E7477B /* AppDelegate.swift in Sources */,
 			);

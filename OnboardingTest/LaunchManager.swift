@@ -30,102 +30,122 @@ import Foundation
 // De parent (launchmanager) vertelt zijn kinderen (viewcontrollers) wat hij moet doen i.p.v. dat de kinderen de parent vertelen wat hij moet doen.
 // Sterker nog de kinderen weten niet eens wie hun parent is. Dit zorgt ervoor dat je ze overal kan hergebruiken.
 
+// Notes Martijn:
+// Ik heb delegate-functies gemaakt voor nextbuttonclicks in de ScoreController en in de ProblemController
+// Op een click wordt altijd dezelfde hoofd-functie gecalled: getNextScene()
+// In getNextScene() wordt geswitched op currentProces. Een volgende scene hangt immers af van het proces waarin de gebruiker zich bevindt
+// Voor ieder proces (onboardingProces, TappingWithMerel) heb ik een separate functie gecreeerd die switched op currentScene. Iedere scene binnen een proces definieert immers de volgende scene!
+// Binnen iedere case (een scene) wordt een functie gecalled om de betreffende VC vanuit de navigationcontroller te pushen. Iedere VC (VideoController, ScoreController en Problemcontroller) heeft een eigen functie (presentScoreController, presentVideoController, etc).
+
 import UIKit
 
 class LaunchManager: NSObject {
     
-    let videoPlayer = VideoController()
-    
-    // NO need for it to be a singleton anymore, we will create a single reference on launch and then destory the object when the onboarding is finished
-    static let sharedInstance = LaunchManager()
-    let sceneLauncher = SceneLauncher()
-    
     var currentScene: Scene = .none //temp terugzetten naar .none
     var currentProces: CurrentProces = .onboardingProces
+    
+    fileprivate var navigationController = UINavigationController()
     
     init(rootVC: UINavigationController = UINavigationController()) {
         self.navigationController = rootVC
         super.init()
     }
     
-    fileprivate var navigationController = UINavigationController()
-    
-    func getNextScene() {
-        switch (currentScene, currentProces) {
-            
-        //All scenes onboardingProces
-        case (.none, .onboardingProces):
+    func getNextSceneOnboarding() {
+        switch currentScene {
+        case .none:
             currentScene = .onboarding1
-//            sceneLauncher.ShowVideoPlayer(withPath: self.currentScene.rawValue, withMessage: self.currentScene.videoDescription, withTextBeginTimes: [], withTextEndTimes: [])
-        case (.onboarding1, .onboardingProces):
+            presentVideoController(currentScene: currentScene)
+        case .onboarding1:
             currentScene = .onboarding2
-//            sceneLauncher.ShowVideoPlayer(withPath: currentScene.rawValue, withMessage: currentScene.videoDescription, withTextBeginTimes: [], withTextEndTimes: [])
-        case (.onboarding2, .onboardingProces):
+            presentVideoController(currentScene: currentScene)
+        case .onboarding2:
             currentScene = .onboarding3
-//            sceneLauncher.ShowVideoPlayer(withPath: currentScene.rawValue, withMessage: currentScene.videoDescription, withTextBeginTimes: [], withTextEndTimes: [])
-        case (.onboarding3, .onboardingProces):
+            presentVideoController(currentScene: currentScene)
+        case .onboarding3:
             currentScene = .probleemIntroductie
-//            sceneLauncher.ShowVideoPlayer(withPath: currentScene.rawValue, withMessage: currentScene.videoDescription, withTextBeginTimes: [], withTextEndTimes: [])
-        case (.probleemIntroductie, .onboardingProces):
-            sceneLauncher.removeAllViews()
+            presentVideoController(currentScene: currentScene)
+        case .probleemIntroductie:
             currentScene = .probleemInvullen
-            sceneLauncher.showProblemView(withMessage: currentScene.videoDescription)
-        case (.probleemInvullen, .onboardingProces):
+            presentProblemController(scene: currentScene)
+        case .probleemInvullen:
             currentScene = .scoresysteemUitleg
-            sceneLauncher.removeAllViews()
-//            sceneLauncher.ShowVideoPlayer(withPath: currentScene.rawValue, withMessage: currentScene.videoDescription, withTextBeginTimes: [], withTextEndTimes: [])
-        case (.scoresysteemUitleg, .onboardingProces):
+            presentVideoController(currentScene: currentScene)
+        case .scoresysteemUitleg:
             currentScene = .scoreInvullen
-            sceneLauncher.removeAllViews()
-            sceneLauncher.showScoreEditView(withMessage: currentScene.videoDescription)
-        case (.scoreInvullen, .onboardingProces):
-            sceneLauncher.removeAllViews()
+            presentScoreController(scene: currentScene)
+        case .scoreInvullen:
             currentScene = .opstartzin
-//            sceneLauncher.ShowVideoPlayer(withPath: currentScene.rawValue, withMessage: currentScene.videoDescription, withTextBeginTimes: currentScene.videoTextBeginTimes, withTextEndTimes: currentScene.videoTextEndTimes)
-        case (.opstartzin, .onboardingProces):
-            sceneLauncher.removeAllViews()
+            presentVideoController(currentScene: currentScene)
+        case .opstartzin:
             currentScene = .eersteTapsessie
-//            sceneLauncher.ShowVideoPlayer(withPath: currentScene.rawValue, withMessage: currentScene.videoDescription, withTextBeginTimes: currentScene.videoTextBeginTimes, withTextEndTimes: currentScene.videoTextEndTimes)
-        case (.eersteTapsessie, .onboardingProces):
-            sceneLauncher.removeAllViews()
+            presentVideoController(currentScene: currentScene)
+        case .eersteTapsessie:
             currentScene = .tweedeKeerScoreInvullen
-            sceneLauncher.showScoreEditView(withMessage: currentScene.videoDescription)
-            //etc
+            presentScoreController(scene: currentScene)
+        default: break
             
-        //All scenes tappingWithMerelProces
-        case (.none, .tappingWithMerelProces):
-            sceneLauncher.removeAllViews()
-            currentScene = .probleemInvullen
-            sceneLauncher.showProblemView(withMessage: currentScene.videoDescription)
-        case (.probleemInvullen, .tappingWithMerelProces):
-            sceneLauncher.removeAllViews()
-            currentScene = .scoreInvullen
-            sceneLauncher.showScoreEditView(withMessage: currentScene.videoDescription)
-        case (.scoreInvullen, .tappingWithMerelProces):
-            sceneLauncher.removeAllViews()
-            currentScene = .opstartzin
-//            sceneLauncher.ShowVideoPlayer(withPath: currentScene.rawValue, withMessage: currentScene.videoDescription, withTextBeginTimes: currentScene.videoTextBeginTimes, withTextEndTimes: currentScene.videoTextEndTimes)
-        //etc
-        default:
-            currentScene = .alsHetNietWerkt
         }
     }
     
-    func playAgain() {
-//        sceneLauncher.ShowVideoPlayer(withPath: currentScene.rawValue, withMessage: currentScene.videoDescription, withTextBeginTimes: [], withTextEndTimes: []) 
+    func getNextSceneTappingWithMerel() {
+        switch currentScene {
+        case .none:
+            currentScene = .probleemInvullen
+            presentVideoController(currentScene: currentScene)
+        case .probleemInvullen:
+            currentScene = .scoreInvullen
+            presentScoreController(scene: currentScene)
+        case .scoreInvullen:
+            currentScene = .opstartzin
+            presentVideoController(currentScene: currentScene)
+            // etc etc
+        default:
+            break
+            
+        }
+        
+    }
+    
+    func getNextScene() {
+        switch currentProces {
+        case .onboardingProces:
+            getNextSceneOnboarding()
+        case .tappingWithMerelProces:
+            getNextSceneTappingWithMerel()
+        }
+        
+
     }
     
     // Called from the app delegate to show the first view controller
     func start() {
         currentScene = .onboarding1
-        let videoViewController = VideoController(video: .onboarding1)
-        videoViewController.delegate = self
+        let videoViewController = BreathController()
+        //videoViewController.delegate = self
         navigationController.setViewControllers([videoViewController], animated: true)
         navigationController.delegate = self
         navigationController.setNavigationBarHidden(true, animated: false)
     }
-
-
+    
+    func presentVideoController(currentScene: Scene) {
+        let videoViewController = VideoController(video: currentScene)
+        videoViewController.delegate = self
+        navigationController.pushViewController(videoViewController, animated: true)
+    }
+    //scene not used because vc is always the same?
+    func presentScoreController(scene: Scene) {
+        let scoreController = ScoreController()
+        scoreController.delegate = self
+        navigationController.pushViewController(scoreController, animated: true)
+    }
+    //scene not used because vc is always the same?
+    func presentProblemController(scene: Scene) {
+        let problemController = ProblemController()
+        problemController.delegate = self
+        navigationController.pushViewController(problemController, animated: true)
+    }
+    
 }
 
 // MARK: - UINavigationControllerDelegate
@@ -143,21 +163,22 @@ extension LaunchManager: UINavigationControllerDelegate {
 extension LaunchManager: VideoControllerDelegate {
     
     func videoControllerNextButtonClick(_ controller: VideoController) {
-        switch currentScene {
-        case .onboarding1:
-            currentScene = .onboarding2
-            let videoViewController = VideoController(video: currentScene)
-            videoViewController.delegate = self
-            // TODO: - How to present this view controller have a look at
-            // .....s
-            navigationController.pushViewController(videoViewController, animated: true)
-        default:
-            return
-            
-        }
+        getNextScene()
     }
-    
 }
 
-// TODO: - Implement routing on events from ProblemViewControllerDelegate
-// TODO: - Implement routing from tapping modules etc etc.
+// MARK: - ScoreControllerDelegate
+
+extension LaunchManager: ScoreControllerDelegate {
+    func scoreControllerNextButtonClick(_ controller: ScoreController) {
+        getNextScene()
+    }
+}
+
+// MARK: - ProblemControllerDelegate
+
+extension LaunchManager: ProblemControllerDelegate {
+    func problemControllerNextButtonClick(_ view: ProblemController) {
+        getNextScene()
+    }
+}
