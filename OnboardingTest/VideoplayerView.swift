@@ -24,6 +24,7 @@ final class VideoplayerView: UIView {
     private struct Constants {
         static let ButtonHeight: CGFloat = 60
         static let ButtonWidth: CGFloat = 60
+        static let TimerInterval: TimeInterval = 4
     }
     
     private enum ControlsState {
@@ -61,6 +62,8 @@ final class VideoplayerView: UIView {
     }
     
     private var didReachEndOfVideo = false
+    
+    private var timer: Timer?
     
     // MARK: Init
     
@@ -109,7 +112,6 @@ final class VideoplayerView: UIView {
         NotificationCenter.default.addObserver(self, selector: failureSelector, name: .AVPlayerItemFailedToPlayToEndTime, object: nil)
         let backgroundSelector = #selector(didEnterBackground(notification:))
         NotificationCenter.default.addObserver(self, selector: backgroundSelector, name: .UIApplicationDidEnterBackground, object: nil)
-        // TODO: background and foreground notifications??
     }
     
     deinit {
@@ -133,22 +135,30 @@ final class VideoplayerView: UIView {
     
     @objc private func handleDidFinishPlaying(notification: Notification) {
         didReachEndOfVideo = true
+        invalidateTimer()
         delegate?.videoPlayerViewDidFinishPlaying?(self)
     }
     
     @objc private func handleFailure(notification: Notification) {
         spinner.stopAnimating()
+        invalidateTimer()
         // TODO: - Determine error
         delegate?.videoPlayerView?(self, didFailWithError: NSError())
     }
     
     @objc private func didEnterBackground(notification: Notification) {
+        invalidateTimer()
         player?.pause()
     }
     
     // MARK: Gestures
     
     @objc private func handle(tapGesture: UITapGestureRecognizer) {
+        // Reset timer 
+        invalidateTimer()
+        
+        let prevState = controlsState
+        
         if controlsState == .disabled && videoIsPlaying {
             controlsState = .showPauseButton
         } else if controlsState == .disabled {
@@ -157,7 +167,28 @@ final class VideoplayerView: UIView {
             controlsState = .disabled
         }
         
+        guard controlsState != prevState else {
+            return
+        }
+        
         set(controlsState: controlsState, animated: true)
+        
+        if controlsState == .showPauseButton && timer == nil {
+          scheduleTimer()
+        }
+    }
+    
+    private func scheduleTimer() {
+        timer = Timer.scheduledTimer(withTimeInterval: Constants.TimerInterval, repeats: false) { timer in
+            UIView.animate(withDuration: 0.2) {
+                self.pausePlayButton.alpha = 0.0
+            }
+        }
+    }
+    
+    private func invalidateTimer() {
+        timer?.invalidate()
+        timer = nil
     }
     
     // MARK: Actions
@@ -184,6 +215,7 @@ final class VideoplayerView: UIView {
         setNeedsLayout()
         
         addObserver(self, forKeyPath: #keyPath(player.rate), options: [.new], context: nil)
+        addObserver(self, forKeyPath: #keyPath(player.status), options: [.new], context: nil)
     }
     
     func playNewVideo(withpath path: String) {
@@ -196,6 +228,7 @@ final class VideoplayerView: UIView {
         spinner.startAnimating()
         
         if didReachEndOfVideo {
+            didReachEndOfVideo = false
             player?.seek(to: kCMTimeZero)
         }
         
@@ -228,7 +261,7 @@ final class VideoplayerView: UIView {
                         spinner.stopAnimating()
                     }
                 } else if newRate == 0.0 {
-                    set(controlsState: .showPlayButton, animated: true)
+                    set(controlsState: .showPlayButton, animated: true) // Replay
                 }
             }
         }

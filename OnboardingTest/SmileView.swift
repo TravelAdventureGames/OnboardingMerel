@@ -15,7 +15,7 @@ import UIKit
 class SmileView: UIView {
     
     @IBInspectable
-    var scale: CGFloat = 0.9 { didSet{setNeedsDisplay()}}
+    var scale: CGFloat = 0.9 { didSet{setNeedsDisplay()} }
     @IBInspectable
     var mouthCurvature: Double = 1.0 { didSet{
         setNeedsDisplay()}} //1 full smile -1 full frown

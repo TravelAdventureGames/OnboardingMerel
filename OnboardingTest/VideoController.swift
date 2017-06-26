@@ -17,8 +17,6 @@ class VideoController: UIViewController {
     @IBOutlet weak var messageView: MessageView!
     
     @IBOutlet weak var videoView: VideoplayerView!
- 
-    @IBOutlet weak var againButton: UIButton!
     
     @IBOutlet weak var nextButton: UIButton!
     
@@ -40,8 +38,8 @@ class VideoController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        againButton.setTitle("Play again", for: .normal)
-        nextButton.setTitle("Next", for: .normal)
+        nextButton.setTitle("Ga verder", for: .normal)
+        nextButton.alpha = 0.0
         
         // Setup for animation
         videoView.alpha = 0
@@ -59,6 +57,13 @@ class VideoController: UIViewController {
             play(video: video)
         }
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        // TODO: - Will this look good on different device sizes
+        nextButton.layer.cornerRadius = 3
+    }
 
     private func play(video: Scene) {
         UIView.animate(withDuration: 0.0, delay: 0.0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
@@ -67,15 +72,11 @@ class VideoController: UIViewController {
             UIView.animate(withDuration: 1.0, delay: 2.0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
                 self.videoView.alpha = 1.0
                 self.messageView.alpha = 0.0
+                self.nextButton.alpha = 1.0
             }, completion: { completed in
                 self.videoView.play()
             })
         })
-    }
-    
-    @IBAction func againButtonClick(_ sender: UIButton) {
-        videoView.stop()
-        videoView.play()
     }
     
     @IBAction func nextButtonClick(_ sender: UIButton) {

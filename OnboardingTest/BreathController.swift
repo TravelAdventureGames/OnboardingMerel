@@ -66,7 +66,6 @@ class BreathController: UIViewController {
         //animateballon and startaudioplayer
     }
     
-    
     func setUpViews() {
         UIGraphicsBeginImageContext(self.view.frame.size)
         #imageLiteral(resourceName: "backgroundBreath").draw(in: self.view.bounds)
