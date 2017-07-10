@@ -154,6 +154,11 @@ class ProblemView: UIView, UITextViewDelegate {
         }
         problemInputView.resignFirstResponder()
     }
+    
+    private func commonInit() {
+        setUpViews()
+    }
+    
     func setUpViews() {
         
         self.addSubview(upperLabel)
@@ -210,13 +215,16 @@ class ProblemView: UIView, UITextViewDelegate {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        commonInit()
         verbInputView.becomeFirstResponder()
         problemInputView.delegate = self
     }
     
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
+        commonInit()
+
     }
     
     

@@ -26,7 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = rootVC
         coordinator = LaunchManager(rootVC: rootVC)
         coordinator.start()
-        // self.window?.rootViewController = VideoController(video: .onboarding1)
         window?.makeKeyAndVisible()
         
         return true

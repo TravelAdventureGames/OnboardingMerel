@@ -9,17 +9,23 @@
 import Foundation
 import AVFoundation
 
+//ADDED
 class AudioPlayer {
     
     var player: AVAudioPlayer!
     
     func playBreathingSound(file: String, ext: String) {
-        guard let file: URL = Bundle.main.url(forResource: file, withExtension: ext) else { return }
+        guard let file: URL = Bundle.main.url(forResource: file, withExtension: ext) else {
+            print("error")
+            return }
         do {
-            player = try AVAudioPlayer(contentsOf: file, fileTypeHint: nil)
-            player!.numberOfLoops = -1
-            player!.prepareToPlay()
-            player!.play()
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+            try AVAudioSession.sharedInstance().setActive(true)
+            
+            player = try AVAudioPlayer(contentsOf: file)
+            guard let player = player else { return }
+            
+            player.play()
             
         } catch _ {
             //catch error

@@ -39,6 +39,16 @@
 		680641121EFA3C8200E7477B /* VideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680641111EFA3C8100E7477B /* VideoController.swift */; };
 		680641141EFA4AFB00E7477B /* ScoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680641131EFA4AFB00E7477B /* ScoreController.swift */; };
 		680641161EFA4C8E00E7477B /* ProblemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680641151EFA4C8E00E7477B /* ProblemController.swift */; };
+		6816AC0C1F026D0B00084BFE /* BreathAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6816AC0B1F026D0B00084BFE /* BreathAnimation.swift */; };
+		6816AC171F02F2C600084BFE /* ademin.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6816AC151F02F2C600084BFE /* ademin.mp3 */; };
+		6816AC181F02F2C600084BFE /* ademuit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6816AC161F02F2C600084BFE /* ademuit.mp3 */; };
+		6816AC1D1F04278900084BFE /* ontspanJeSpieren.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6816AC191F04278900084BFE /* ontspanJeSpieren.mp3 */; };
+		6816AC1E1F04278900084BFE /* zuigJeLongen.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6816AC1A1F04278900084BFE /* zuigJeLongen.mp3 */; };
+		6816AC1F1F04278900084BFE /* ademUitDoorMond.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6816AC1B1F04278900084BFE /* ademUitDoorMond.mp3 */; };
+		6816AC201F04278900084BFE /* ademDoorNeus.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6816AC1C1F04278900084BFE /* ademDoorNeus.mp3 */; };
+		68FFDCF71F0CDE790014BF7F /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FFDCF61F0CDE790014BF7F /* NotificationManager.swift */; };
+		68FFDCFC1F0E1F6D0014BF7F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FFDCFA1F0E1F6D0014BF7F /* HomeViewController.swift */; };
+		68FFDCFD1F0E1F6D0014BF7F /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68FFDCFB1F0E1F6D0014BF7F /* HomeViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +86,16 @@
 		680641111EFA3C8100E7477B /* VideoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoController.swift; sourceTree = "<group>"; };
 		680641131EFA4AFB00E7477B /* ScoreController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreController.swift; sourceTree = "<group>"; };
 		680641151EFA4C8E00E7477B /* ProblemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProblemController.swift; sourceTree = "<group>"; };
+		6816AC0B1F026D0B00084BFE /* BreathAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreathAnimation.swift; sourceTree = "<group>"; };
+		6816AC151F02F2C600084BFE /* ademin.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ademin.mp3; sourceTree = "<group>"; };
+		6816AC161F02F2C600084BFE /* ademuit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ademuit.mp3; sourceTree = "<group>"; };
+		6816AC191F04278900084BFE /* ontspanJeSpieren.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ontspanJeSpieren.mp3; sourceTree = "<group>"; };
+		6816AC1A1F04278900084BFE /* zuigJeLongen.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = zuigJeLongen.mp3; sourceTree = "<group>"; };
+		6816AC1B1F04278900084BFE /* ademUitDoorMond.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ademUitDoorMond.mp3; sourceTree = "<group>"; };
+		6816AC1C1F04278900084BFE /* ademDoorNeus.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ademDoorNeus.mp3; sourceTree = "<group>"; };
+		68FFDCF61F0CDE790014BF7F /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		68FFDCFA1F0E1F6D0014BF7F /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		68FFDCFB1F0E1F6D0014BF7F /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +170,8 @@
 		680640DE1EF8196700E7477B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				68FFDCFA1F0E1F6D0014BF7F /* HomeViewController.swift */,
+				68FFDCFB1F0E1F6D0014BF7F /* HomeViewController.xib */,
 				680640CC1EF8193700E7477B /* ViewController.swift */,
 				6806410C1EF849C800E7477B /* BreathController.swift */,
 				680641111EFA3C8100E7477B /* VideoController.swift */,
@@ -165,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				680640E01EF819C200E7477B /* LaunchManager.swift */,
+				68FFDCF61F0CDE790014BF7F /* NotificationManager.swift */,
 			);
 			name = Managers;
 			path = OnboardingTest;
@@ -176,6 +199,7 @@
 				680640E51EF81A4700E7477B /* Helpers.swift */,
 				6806410E1EF84D4200E7477B /* AudioPLayer.swift */,
 				11A4791C1EFB18E40067E85F /* CrossDissolveAnimatedTransitioning.swift */,
+				6816AC0B1F026D0B00084BFE /* BreathAnimation.swift */,
 			);
 			name = Helper;
 			path = OnboardingTest;
@@ -203,6 +227,12 @@
 		680641101EF9BB3600E7477B /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				6816AC151F02F2C600084BFE /* ademin.mp3 */,
+				6816AC161F02F2C600084BFE /* ademuit.mp3 */,
+				6816AC191F04278900084BFE /* ontspanJeSpieren.mp3 */,
+				6816AC1A1F04278900084BFE /* zuigJeLongen.mp3 */,
+				6816AC1B1F04278900084BFE /* ademUitDoorMond.mp3 */,
+				6816AC1C1F04278900084BFE /* ademDoorNeus.mp3 */,
 			);
 			name = Audio;
 			path = OnboardingTest;
@@ -268,10 +298,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6816AC171F02F2C600084BFE /* ademin.mp3 in Resources */,
 				680641021EF81D0A00E7477B /* TweedetapsessieCOM1.mp4 in Resources */,
+				6816AC181F02F2C600084BFE /* ademuit.mp3 in Resources */,
 				680641051EF81D0A00E7477B /* LaatsterestjetapsessieCOM1.mp4 in Resources */,
+				6816AC201F04278900084BFE /* ademDoorNeus.mp3 in Resources */,
+				68FFDCFD1F0E1F6D0014BF7F /* HomeViewController.xib in Resources */,
 				680641081EF81D0A00E7477B /* PositieveeindfilmHS1.mp4 in Resources */,
+				6816AC1E1F04278900084BFE /* zuigJeLongen.mp3 in Resources */,
+				6816AC1F1F04278900084BFE /* ademUitDoorMond.mp3 in Resources */,
 				6806410B1EF81D0A00E7477B /* Onboarding1HS1.mp4 in Resources */,
+				6816AC1D1F04278900084BFE /* ontspanJeSpieren.mp3 in Resources */,
 				680640D51EF8193700E7477B /* LaunchScreen.storyboard in Resources */,
 				680641031EF81D0A00E7477B /* ScoreuitlegCOM1.mp4 in Resources */,
 				680641091EF81D0A00E7477B /* ProbleemintroductieHS1.mp4 in Resources */,
@@ -294,8 +331,10 @@
 			files = (
 				680641141EFA4AFB00E7477B /* ScoreController.swift in Sources */,
 				680640EC1EF81AD000E7477B /* ProblemView.swift in Sources */,
+				68FFDCF71F0CDE790014BF7F /* NotificationManager.swift in Sources */,
 				6806410D1EF849C800E7477B /* BreathController.swift in Sources */,
 				11A479211EFF21270067E85F /* VideoplayerView.swift in Sources */,
+				68FFDCFC1F0E1F6D0014BF7F /* HomeViewController.swift in Sources */,
 				680640CD1EF8193700E7477B /* ViewController.swift in Sources */,
 				6806410F1EF84D4200E7477B /* AudioPLayer.swift in Sources */,
 				680640EE1EF81AE000E7477B /* ScoreView.swift in Sources */,
@@ -307,6 +346,7 @@
 				11A4791D1EFB18E40067E85F /* CrossDissolveAnimatedTransitioning.swift in Sources */,
 				11A4791B1EFADC460067E85F /* MessageView.swift in Sources */,
 				680641121EFA3C8200E7477B /* VideoController.swift in Sources */,
+				6816AC0C1F026D0B00084BFE /* BreathAnimation.swift in Sources */,
 				680640F41EF81B9B00E7477B /* ProblemExample.swift in Sources */,
 				680640E61EF81A4700E7477B /* Helpers.swift in Sources */,
 				680640CB1EF8193700E7477B /* AppDelegate.swift in Sources */,

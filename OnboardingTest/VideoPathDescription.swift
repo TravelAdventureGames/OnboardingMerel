@@ -13,6 +13,8 @@ import Foundation
 enum CurrentProces {
     case onboardingProces
     case tappingWithMerelProces
+    case breathingProces
+    case homeControllerProces
 }
 
 enum Scene: String {
@@ -32,6 +34,9 @@ enum Scene: String {
     case derdeTapsessie = "LaatsterestjetapsessieCOM1"
     case positiefEindFilmpje = "PositieveeindfilmHS1"
     case alsHetNietWerkt = "AlshetnietwerktHS1"
+    //ADDED
+    case breathingSession
+    case homeController
     
     var path: String {
         return rawValue
@@ -71,6 +76,12 @@ enum Scene: String {
             return "Gefeliciteerd, je hebt je eerste tapping workout volbracht!"
         case .alsHetNietWerkt:
             return "Soms werkt het niet. Waar kan dat aan liggen?"
+            
+        //ADDED
+        case .breathingSession:
+            return "Ademhalingsoefening"
+        case .homeController:
+            return "Homecontroller"
         }
     }
     // Some vid's have texts at specific times. This enum gives that times
@@ -108,6 +119,11 @@ enum Scene: String {
             return []
         case .alsHetNietWerkt:
             return []
+        //ADDED
+        case .breathingSession:
+            return []
+        case .homeController:
+            return []
         }
     }
     var videoTextEndTimes: [Double] {
@@ -143,6 +159,11 @@ enum Scene: String {
         case .positiefEindFilmpje:
             return []
         case .alsHetNietWerkt:
+            return []
+        //ADDED
+        case .breathingSession:
+            return []
+        case .homeController:
             return []
         }
     }

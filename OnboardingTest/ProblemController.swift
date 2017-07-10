@@ -23,7 +23,7 @@ class ProblemController: UIViewController {
     weak var delegate: ProblemControllerDelegate?
     
     
-    init(scene: Scene = .none) {
+    init(scene: Scene = .probleemInvullen) {
         self.scene = scene
         super.init(nibName: nil, bundle: nil)
     }

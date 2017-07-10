@@ -7,41 +7,16 @@
 //
 
 import Foundation
-
-//This class determines the flow of all app-scenes. Based on the currentscene (and maybe some other variables such as score) it determines the next scene to be presented. There are numourous scenes such as ShowVideoPlayer, ShowProblemView, ShowScoreEditView, etc. It aslo uses currentProcess to determine which proces is going on at a specific moment (f.e. the onboarding-proces or tappingWithMerel). We discussed it would be better to make separate launchmanagers for the different processes to be handled.
-//I use the SceneLauncher-class to handle the presentation of them with animation, but in the new form I made new separate viewControllers for video, score and problem. This launchmanager still has to be adapted to handle the scenes from their viewController (I didn't made that change yet, it now still uses the SceneLauncher-class).
-//Launchmanager uses the Scene-enum to get to the properties belonging to  the currentscene such as the videoPath, the videoDescription (which is used as text in the messageView in the SceneLauncher) and videoTextBeginTimes and videoTextEndTimes to determine the exact timeframes of the texts regarding the problem which is tapped on, to be be shown in the VideoPLayer.
-
-// Notes Kaira:
-// Ik heb gekeken naar hoe je de drie nieuwe vc's kan aanspreken vanuit de launchmanager:
-// Ik heb dit gedaan door de videocontroller als voorbeeld te nemen.
-// Hiervoor heb ik dit artikel voor inspiratie gebruikt: http://irace.me/navigation-coordinators
-// Wat heb ik precies gedaan: 
-// VideoPlayer regelt alles zelf zolang je hem maar een video geeft bij initialisatie
-// Wanneer hij klaar is laat hij aan zijn delegate weten hoe hij is geeindigd (bijv. next button click)
-// Omdat de launchmanager fungeert als coordinator is hij de delegate en zal hij op dat moment de currentscene veranderen 
-// en de volgende view controller presenteren. 
-// Voor het presenteren heb ik een container gebruikt in dit geval UINavigationController. 
-// Dankzij een custom transitioning heb je nog steeds de fade in fade out i.p.v de standaard slide naar links.
-// Hierdoor heb je automatisch ook support voor een terug button omdat navigationcontroller deze vc's in memory houd totdat 
-// we de flow eindiggen en we straks de coordinator voor deze flow op dat moment destroyen.
-// Op deze manier is het heel simpel launchmanager reageert op elk event vanuit de view controllers, en houd de statemachine bij om te weten
-// waar we ons in de onboarding bevinden.
-// De parent (launchmanager) vertelt zijn kinderen (viewcontrollers) wat hij moet doen i.p.v. dat de kinderen de parent vertelen wat hij moet doen.
-// Sterker nog de kinderen weten niet eens wie hun parent is. Dit zorgt ervoor dat je ze overal kan hergebruiken.
-
-// Notes Martijn:
-// Ik heb delegate-functies gemaakt voor nextbuttonclicks in de ScoreController en in de ProblemController
-// Op een click wordt altijd dezelfde hoofd-functie gecalled: getNextScene()
-// In getNextScene() wordt geswitched op currentProces. Een volgende scene hangt immers af van het proces waarin de gebruiker zich bevindt
-// Voor ieder proces (onboardingProces, TappingWithMerel) heb ik een separate functie gecreeerd die switched op currentScene. Iedere scene binnen een proces definieert immers de volgende scene!
-// Binnen iedere case (een scene) wordt een functie gecalled om de betreffende VC vanuit de navigationcontroller te pushen. Iedere VC (VideoController, ScoreController en Problemcontroller) heeft een eigen functie (presentScoreController, presentVideoController, etc).
-
 import UIKit
+
+//ADDED
+// Alle schermen worden gepresenteerd en evt. gepopped vanuit de Launchmanager.
+// Hoe verloopt dit proces precies?
+
 
 class LaunchManager: NSObject {
     
-    var currentScene: Scene = .none //temp terugzetten naar .none
+    var currentScene: Scene = .none
     var currentProces: CurrentProces = .onboardingProces
     
     fileprivate var navigationController = UINavigationController()
@@ -83,6 +58,7 @@ class LaunchManager: NSObject {
         case .eersteTapsessie:
             currentScene = .tweedeKeerScoreInvullen
             presentScoreController(scene: currentScene)
+        //Nu split afhankelijk van score invullen
         default: break
             
         }
@@ -92,40 +68,73 @@ class LaunchManager: NSObject {
         switch currentScene {
         case .none:
             currentScene = .probleemInvullen
-            presentVideoController(currentScene: currentScene)
+            presentProblemController(scene: currentScene)
         case .probleemInvullen:
             currentScene = .scoreInvullen
             presentScoreController(scene: currentScene)
         case .scoreInvullen:
             currentScene = .opstartzin
             presentVideoController(currentScene: currentScene)
-            // etc etc
+        case .opstartzin:
+            currentScene = .eersteTapsessie
+            presentVideoController(currentScene: currentScene)
+        case .eersteTapsessie:
+            currentScene = .tweedeKeerScoreInvullen
+            presentScoreController(scene: currentScene)
+        //Nu split afhankelijk van score invullen
         default:
             break
             
         }
         
     }
-    
+    //ADDED
+    func getNextSceneBreathingSession() {
+        switch currentScene {
+        case .none:
+            currentScene = .breathingSession
+            presentBreathingController(scene: currentScene)
+        default:
+            break
+        }
+    }
+        
+    func getHomeViewController() {
+        switch currentScene {
+        case .none:
+            currentScene = .homeController
+            presentHomeController()
+        default:
+            break
+        }
+    }
+        
+    // ADDED breathingProces
     func getNextScene() {
         switch currentProces {
         case .onboardingProces:
             getNextSceneOnboarding()
         case .tappingWithMerelProces:
             getNextSceneTappingWithMerel()
+        case .breathingProces:
+            getNextSceneBreathingSession()
+        case .homeControllerProces:
+            getHomeViewController()
         }
-        
-
     }
     
     // Called from the app delegate to show the first view controller
     func start() {
-        currentScene = .onboarding1
-        let videoViewController = BreathController()
-        //videoViewController.delegate = self
-        navigationController.setViewControllers([videoViewController], animated: true)
+        currentScene = .none
+        currentProces = .homeControllerProces
         navigationController.delegate = self
         navigationController.setNavigationBarHidden(true, animated: false)
+        getNextScene()
+        
+        // Local notificationtest
+        let notificationManager = NoticationManager()
+        notificationManager.pushLocalNotification()
+        
     }
     
     func presentVideoController(currentScene: Scene) {
@@ -144,6 +153,21 @@ class LaunchManager: NSObject {
         let problemController = ProblemController()
         problemController.delegate = self
         navigationController.pushViewController(problemController, animated: true)
+    }
+    
+    //ADDED
+    func presentBreathingController(scene: Scene) {
+        let breathController = BreathController()
+        breathController.delegate = self
+        navigationController.pushViewController(breathController, animated: true)
+    }
+    
+    //ADDED
+    func presentHomeController() {
+        let homeController = HomeViewController()
+        homeController.delegate = self
+        navigationController.pushViewController(homeController, animated: true)
+        
     }
     
 }
@@ -180,5 +204,52 @@ extension LaunchManager: ScoreControllerDelegate {
 extension LaunchManager: ProblemControllerDelegate {
     func problemControllerNextButtonClick(_ view: ProblemController) {
         getNextScene()
+    }
+}
+//ADDED
+extension LaunchManager: BreathControllerDelegate {
+    func didPopBreathController(_ controller: BreathController) {
+        navigationController.popViewController(animated: true)
+    }
+}
+
+//ADDED
+extension LaunchManager: HomeViewControllerDelegate {
+    func didClickOnboardingUitleg(_ controller: HomeViewController) {
+        currentScene = .none
+        currentProces = .onboardingProces
+        getNextScene()
+    }
+    
+    func didClickTappingWithMerel(_ controller: HomeViewController) {
+        currentScene = .none
+        currentProces = .tappingWithMerelProces
+        getNextScene()
+    }
+    
+    func didClickTappingZelf(_ controller: HomeViewController) {
+        print(1)
+    }
+    
+    func didClickMySessions(_ controller: HomeViewController) {
+        print(1)
+    }
+    
+    func didClickBreathingSession(_ controller: HomeViewController) {
+        currentScene = .none
+        currentProces = .breathingProces
+        getNextScene()
+    }
+    
+    func didClickSpecialSlapeloosheid(_ controller: HomeViewController) {
+        print(1)
+    }
+    
+    func didClickSpecialStressReduction(_ controller: HomeViewController) {
+        print(1)
+    }
+    
+    func didClickSpecialMeerZelfvertrouwen(_ controller: HomeViewController) {
+        print(1)
     }
 }
